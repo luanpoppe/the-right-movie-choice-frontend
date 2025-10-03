@@ -1,10 +1,10 @@
-import { MovieRecommendationSchema } from "@/features/movies/entities/movie-recommendation.entity";
+import { MultipleMoviesRecommendationsSchema } from "@/features/movies/entities/movie-recommendation.entity";
 import z from "zod";
 
 export const SingleMessageSchema = z.object({
   from: z.enum(["user", "ai"]),
   message: z.string(),
-  movies: MovieRecommendationSchema.optional(),
+  movies: MultipleMoviesRecommendationsSchema.optional(),
 });
 
 export const ChatSchema = z.array(SingleMessageSchema);

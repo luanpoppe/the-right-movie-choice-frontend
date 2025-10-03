@@ -29,7 +29,7 @@ export function Chat({
 
             {movies && (
               <div className="grid gap-5 md:grid-cols-3">
-                {movies.movies.map((m) => (
+                {movies.map((m) => (
                   <MovieCard key={`${m.title} - ${m.releaseYear}`} movie={m} />
                 ))}
               </div>
