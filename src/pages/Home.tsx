@@ -3,8 +3,8 @@
 // import type { MovieChatMessage } from "@/app/api/chat/route";
 import { useState, useEffect } from "react";
 import { MOCK_MESSAGES } from "@/utils/mock-messages";
-import { Welcome } from "@/pages/Home/Welcome";
-import { Chat } from "@/pages/Home/Chat";
+import { Chat } from "@/features/chat";
+import { Welcome } from "@/features/welcome";
 
 export function Home() {
   const [hasStartedChat, setHasStartedChat] = useState(false);

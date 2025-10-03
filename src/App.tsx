@@ -1,5 +1,5 @@
 import { Header } from "./layouts/Header";
-import { Home } from "./pages/Home/Home";
+import { Home } from "./pages/Home";
 
 export default function App() {
   return (
