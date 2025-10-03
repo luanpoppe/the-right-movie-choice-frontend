@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Bot, User } from "lucide-react";
 
 interface ChatMessageProps {
-  role: "user" | "assistant";
+  role: "user" | "ai";
   content: string;
 }
 

@@ -1,65 +1,65 @@
-export const MOCK_MESSAGES = [
+import { ChatEntity } from "@/features/chat/entities/chat.entity";
+
+export const MOCK_MESSAGES: ChatEntity = [
   {
-    id: "mock-1",
-    role: "user" as const,
-    parts: [
-      {
-        type: "text" as const,
-        text: "I want to watch an action movie with great fight scenes",
-      },
-    ],
+    from: "user",
+    message: "I want to watch an action movie with great fight scenes",
   },
   {
-    id: "mock-2",
-    role: "assistant" as const,
-    parts: [
-      {
-        type: "text" as const,
-        text: "Great choice! I've selected three action-packed films with incredible fight choreography that will keep you on the edge of your seat. Each one offers a unique style of action and storytelling.",
-      },
-      {
-        type: "data" as const,
-        data: {
-          movies: [
-            {
-              title: "John Wick",
-              year: 2014,
-              director: "Chad Stahelski",
-              genre: ["Action", "Thriller", "Crime"],
-              rating: 7.4,
-              duration: 101,
-              synopsis:
-                "An ex-hitman comes out of retirement to track down the gangsters that killed his dog and took everything from him.",
-              reason:
-                "Features some of the most innovative and brutal fight choreography in modern cinema, with Keanu Reeves performing most of his own stunts.",
-            },
-            {
-              title: "The Raid",
-              year: 2011,
-              director: "Gareth Evans",
-              genre: ["Action", "Thriller", "Martial Arts"],
-              rating: 7.6,
-              duration: 101,
-              synopsis:
-                "A S.W.A.T. team becomes trapped in a tenement run by a ruthless mobster and his army of killers and thugs.",
-              reason:
-                "Widely considered one of the best action films ever made, with relentless Indonesian martial arts sequences that are absolutely jaw-dropping.",
-            },
-            {
-              title: "Mad Max: Fury Road",
-              year: 2015,
-              director: "George Miller",
-              genre: ["Action", "Adventure", "Sci-Fi"],
-              rating: 8.1,
-              duration: 120,
-              synopsis:
-                "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners.",
-              reason:
-                "A masterclass in practical action filmmaking with stunning vehicular combat and chase sequences that are both beautiful and brutal.",
-            },
+    from: "ai",
+    message:
+      'Entendido! Já que você assistiu "O Homem nas Trevas", tenho algumas ótimas sugestões de filmes que podem te interessar, todos com elementos de suspense e tensão:\n\n*   **Hush - A Morte Ouve**: Perfeito para quem gosta de um suspense psicológico intenso e um jogo de gato e rato. A protagonista surda e muda adiciona uma camada única de vulnerabilidade e engenhosidade à luta pela sobrevivência.\n*   **Um Lugar Silencioso**: Se você curte um terror com uma premissa original e muita tensão, este filme é excelente. A necessidade de silêncio absoluto cria uma atmosfera de suspense constante e arrepiante.\n*   **Corra!**: Uma escolha fantástica para quem busca um terror mais inteligente e com crítica social. Ele mistura suspense, mistério e elementos psicológicos de forma brilhante, garantindo uma experiência única.\n\nEsses filmes foram selecionados por suas narrativas envolventes e capacidade de prender a atenção. Gostaria de saber mais detalhes sobre algum deles ou tem alguma preferência específica?',
+    movies: {
+      movies: [
+        {
+          title: "Hush - A Morte Ouve",
+          director: "Mike Flanagan",
+          actors: [
+            "Kate Siegel",
+            "John Gallagher Jr.",
+            "Michael Trucco",
+            "Samantha Sloyan",
           ],
+          releaseYear: 2016,
+          streamingPlatform: "Netflix",
+          imdbRating: 6.6,
+          description:
+            "Uma escritora surda e muda que vive isolada na floresta precisa lutar por sua vida quando um assassino mascarado aparece em sua janela.",
+          durationInMinutes: 81,
         },
-      },
-    ],
+        {
+          title: "Um Lugar Silencioso",
+          director: "John Krasinski",
+          actors: [
+            "Emily Blunt",
+            "John Krasinski",
+            "Millicent Simmonds",
+            "Noah Jupe",
+          ],
+          releaseYear: 2018,
+          streamingPlatform: "Paramount+",
+          imdbRating: 7.5,
+          description:
+            "Uma família é forçada a viver em silêncio absoluto para evitar criaturas misteriosas que caçam pelo som.",
+          durationInMinutes: 90,
+        },
+        {
+          title: "Corra!",
+          director: "Jordan Peele",
+          actors: [
+            "Daniel Kaluuya",
+            "Allison Williams",
+            "Bradley Whitford",
+            "Catherine Keener",
+          ],
+          releaseYear: 2017,
+          streamingPlatform: "Telecine",
+          imdbRating: 7.8,
+          description:
+            "Um jovem negro visita a propriedade da família de sua namorada branca e descobre um segredo perturbador por trás de sua aparente hospitalidade.",
+          durationInMinutes: 104,
+        },
+      ],
+    },
   },
 ];

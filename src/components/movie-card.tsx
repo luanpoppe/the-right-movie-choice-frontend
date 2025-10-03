@@ -8,20 +8,10 @@ import {
 
 import { Star, Calendar, Clock } from "lucide-react";
 import { Badge } from "./ui/badge";
-
-interface Movie {
-  title: string;
-  year: number;
-  director: string;
-  genre: string[];
-  rating: number;
-  duration: number;
-  synopsis: string;
-  reason: string;
-}
+import { SingleMovieReccomendationEntity } from "@/features/movies/entities/movie-recommendation.entity";
 
 interface MovieCardProps {
-  movie: Movie;
+  movie: SingleMovieReccomendationEntity;
 }
 
 export function MovieCard({ movie }: MovieCardProps) {
@@ -40,13 +30,13 @@ export function MovieCard({ movie }: MovieCardProps) {
 
       <CardContent className="space-y-4">
         <div className="flex flex-wrap gap-2">
-          {movie.genre.map((g) => (
+          {movie.actors.map((a) => (
             <Badge
-              key={g}
+              key={a}
               variant="secondary"
               className="text-xs rounded-full px-3"
             >
-              {g}
+              {a}
             </Badge>
           ))}
         </div>
@@ -56,20 +46,20 @@ export function MovieCard({ movie }: MovieCardProps) {
             <div className="rounded-full bg-accent/20 p-1">
               <Star className="w-3 h-3 fill-accent text-accent" />
             </div>
-            <span className="font-medium">{movie.rating}/10</span>
+            <span className="font-medium">{movie.imdbRating}/10</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5" />
-            <span>{movie.year}</span>
+            <span>{movie.releaseYear}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5" />
-            <span>{movie.duration}min</span>
+            <span>{movie.durationInMinutes}min</span>
           </div>
         </div>
 
         <p className="text-sm text-muted-foreground leading-relaxed">
-          {movie.synopsis}
+          {movie.description}
         </p>
 
         <div className="pt-3 border-t border-border/50">
@@ -80,7 +70,7 @@ export function MovieCard({ movie }: MovieCardProps) {
             </p>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            {movie.reason}
+            {movie.description}
           </p>
         </div>
       </CardContent>

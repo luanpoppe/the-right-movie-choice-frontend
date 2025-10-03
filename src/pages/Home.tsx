@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { MOCK_MESSAGES } from "@/utils/mock-messages";
 import { Chat } from "@/features/chat";
 import { Welcome } from "@/features/welcome";
+import { ChatEntity } from "@/features/chat/entities/chat.entity";
 
 export function Home() {
   const [hasStartedChat, setHasStartedChat] = useState(false);
@@ -40,7 +41,7 @@ export function Home() {
 
   const isLoading = status === "in_progress";
 
-  const displayMessages = showMockData ? MOCK_MESSAGES : messages;
+  const displayMessages: ChatEntity = showMockData ? MOCK_MESSAGES : messages;
 
   if (!hasStartedChat) {
     return <Welcome handleSubmit={handleSubmit} isLoading={isLoading} />;

@@ -4,7 +4,7 @@ interface InputSuggestionsProps {
 
 export function InputSuggestions({ isLoading }: InputSuggestionsProps) {
   return (
-    <div className="flex flex-wrap gap-2 justify-center">
+    <div className="flex flex-wrap gap-2 justify-center items-center">
       <span className="text-sm text-muted-foreground">Try:</span>
       {[
         "Action thriller",

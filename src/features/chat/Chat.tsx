@@ -3,10 +3,11 @@ import { ChatMessage } from "@/components/chat-message";
 import { MovieCard } from "@/components/movie-card";
 import { GoBackButton } from "./components/GoBackButton";
 import { LoadingScreen } from "./components/LoadingScreen";
+import { ChatEntity } from "./entities/chat.entity";
 
 interface ChatProps {
   handleReset: () => void;
-  displayMessages: any[];
+  displayMessages: ChatEntity;
   isLoading: boolean;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
@@ -22,31 +23,17 @@ export function Chat({
       <GoBackButton handleReset={handleReset} />
 
       <div className="flex-1 space-y-8 mb-6">
-        {displayMessages.map((message: any) => (
-          <div key={message.id} className="space-y-6">
-            {message.parts.map((part: any, index: any) => {
-              if (part.type === "text") {
-                return (
-                  <ChatMessage
-                    key={index}
-                    role={message.role}
-                    content={part.text}
-                  />
-                );
-              }
+        {displayMessages.map(({ from, message, movies }, i) => (
+          <div key={i} className="space-y-6">
+            <ChatMessage role={from} content={message} />
 
-              if (part.type === "data" && part.data.movies) {
-                return (
-                  <div key={index} className="grid gap-5 md:grid-cols-3">
-                    {part.data.movies.map((movie: any, movieIndex: number) => (
-                      <MovieCard key={movieIndex} movie={movie} />
-                    ))}
-                  </div>
-                );
-              }
-
-              return null;
-            })}
+            {movies && (
+              <div className="grid gap-5 md:grid-cols-3">
+                {movies.movies.map((m) => (
+                  <MovieCard key={`${m.title} - ${m.releaseYear}`} movie={m} />
+                ))}
+              </div>
+            )}
           </div>
         ))}
 
