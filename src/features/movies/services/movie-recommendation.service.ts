@@ -1,16 +1,22 @@
 import { env } from "@/utils/env";
 import axios from "axios";
-import { MovieRecommendationResponseDTO } from "../dto/movie-recommendation.dto";
+import {
+  MovieRecommendationRequestDTO,
+  MovieRecommendationResponseDTO,
+} from "../dto/movie-recommendation.dto";
 import { MOCK_MESSAGES } from "@/utils/mock-messages";
 import { Utils } from "@/utils/utils";
 
 export class MovieRecommendationService {
   private static baseUrl = env.VITE_BACKEND_URL;
 
-  static async getRecommendations(chatId: string) {
+  static async getRecommendations(
+    body: MovieRecommendationRequestDTO,
+    chatId: string
+  ) {
     const { data } = await axios.post<MovieRecommendationResponseDTO>(
       `${this.baseUrl}/movie/recommendation`,
-      {},
+      body,
       { headers: { chatId: chatId } }
     );
 

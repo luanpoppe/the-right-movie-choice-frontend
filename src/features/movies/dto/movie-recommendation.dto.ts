@@ -9,3 +9,11 @@ export const MovieRecommendationResponseDTOSchema = z.object({
 export type MovieRecommendationResponseDTO = z.infer<
   typeof MovieRecommendationResponseDTOSchema
 >;
+
+export const MovieRecommendationRequestDTOSchema = z.object({
+  userMessage: z.string().nonempty(),
+});
+
+export type MovieRecommendationRequestDTO = z.infer<
+  typeof MovieRecommendationRequestDTOSchema
+>;
