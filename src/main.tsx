@@ -10,14 +10,14 @@ import { Toaster } from "react-hot-toast";
 
 export function Root() {
   return (
-    <StrictMode>
-      <GlobalContext>
-        <ThemeProvider>
-          <Toaster />
-          <App />
-        </ThemeProvider>
-      </GlobalContext>
-    </StrictMode>
+    // <StrictMode>
+    <GlobalContext>
+      <ThemeProvider>
+        <Toaster />
+        <App />
+      </ThemeProvider>
+    </GlobalContext>
+    // </StrictMode>
   );
 }
 

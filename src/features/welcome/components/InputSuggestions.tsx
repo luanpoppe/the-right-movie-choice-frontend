@@ -1,17 +1,35 @@
+import { MoviesQueryExamplesService } from "@/features/movies/services/movies-query-examples.service";
+import { useEffect, useState } from "react";
+
 interface InputSuggestionsProps {
   isLoading: boolean;
 }
 
 export function InputSuggestions({ isLoading }: InputSuggestionsProps) {
+  const [queryExamples, setQueryExamples] = useState<string[]>([
+    "Loading search suggestions...",
+  ]);
+
+  useEffect(() => {
+    const run = async () => {
+      try {
+        const response = await MoviesQueryExamplesService.getQueryExamples();
+
+        setQueryExamples(response.queries.map((q) => q.queryExample));
+      } catch (error) {
+        setQueryExamples([
+          "There was an error creating the suggestions of search terms. Try again if you want some creative movie search.",
+        ]);
+      }
+    };
+
+    run();
+  }, []);
+
   return (
     <div className="flex flex-wrap gap-2 justify-center items-center">
       <span className="text-sm text-muted-foreground">Try:</span>
-      {[
-        "Action thriller",
-        "Romantic comedy",
-        "Mind-bending sci-fi",
-        "Feel-good drama",
-      ].map((suggestion) => (
+      {queryExamples.map((suggestion) => (
         <button
           key={suggestion}
           type="button"
