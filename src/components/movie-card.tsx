@@ -59,7 +59,7 @@ export function MovieCard({ movie }: MovieCardProps) {
         </div>
 
         <p className="text-sm text-muted-foreground leading-relaxed">
-          {movie.description}
+          {movie.synopsis}
         </p>
 
         <div className="pt-3 border-t border-border/50">
@@ -70,7 +70,7 @@ export function MovieCard({ movie }: MovieCardProps) {
             </p>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            {movie.description}
+            {movie.whySuggestion}
           </p>
         </div>
       </CardContent>

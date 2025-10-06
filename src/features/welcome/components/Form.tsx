@@ -16,7 +16,7 @@ export function Form({ handleSubmit, isLoading }: FormProps) {
           name="message"
           placeholder="What kind of movie are you looking for? (e.g., 'a thrilling sci-fi movie' or 'something funny to watch with friends')"
           disabled={isLoading}
-          className="h-16 text-lg rounded-2xl bg-card/80 border-border/50 pr-16 shadow-lg focus-visible:ring-2 focus-visible:ring-primary/20"
+          className="h-16 text-lg rounded-2xl bg-card/80 border-border/50 pr-16 shadow-lg focus-visible:ring-2 focus-visible:ring-primary/20 dark:text-black"
           autoComplete="off"
           autoFocus
         />
