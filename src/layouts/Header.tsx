@@ -34,13 +34,19 @@ function HeaderSubTitle() {
 }
 
 export function Header() {
+  function reloadPage() {
+    window.location.reload();
+  }
+
   return (
     <header className="border-b border-border/50 bg-card/80 backdrop-blur-xl sticky top-0 z-10 shadow-sm">
       <div className="flex">
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center gap-3">
-            <LogoIcon />
-            <div>
+            <div onClick={reloadPage} className="cursor-pointer">
+              <LogoIcon />
+            </div>
+            <div onClick={reloadPage} className="cursor-pointer">
               <HeaderTitle />
 
               <HeaderSubTitle />
